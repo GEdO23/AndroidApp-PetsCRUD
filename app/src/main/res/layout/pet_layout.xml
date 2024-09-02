@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
-    <data>
-        <variable
-            name="pet"
-            type="br.com.petscrud.models.Pet" />
-    </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
@@ -56,7 +51,6 @@
             android:autofillHints="name"
             android:hint="@string/pet_nome_hint"
             android:inputType="text"
-            android:text="@{pet.nome}"
             app:layout_constraintBottom_toTopOf="@+id/pet_raca"
             app:layout_constraintEnd_toEndOf="@id/fl_form"
             app:layout_constraintStart_toEndOf="@id/pet_nome_label"
@@ -84,7 +78,6 @@
             android:autofillHints="name"
             android:hint="@string/pet_raca_hint"
             android:inputType="text"
-            android:text="@{pet.raca}"
             app:layout_constraintBottom_toTopOf="@+id/pet_peso"
             app:layout_constraintEnd_toEndOf="@id/fl_form"
             app:layout_constraintStart_toEndOf="@id/pet_raca_label"
@@ -111,7 +104,6 @@
             android:autofillHints=""
             android:hint="@string/pet_peso_hint"
             android:inputType="numberDecimal"
-            android:text="@{String.valueOf(pet.peso)}"
             app:layout_constraintBottom_toTopOf="@+id/pet_nascimento"
             app:layout_constraintEnd_toEndOf="@id/fl_form"
             app:layout_constraintStart_toEndOf="@id/pet_peso_label"
@@ -138,7 +130,6 @@
             android:autofillHints=""
             android:hint="@string/pet_nascimento_hint"
             android:inputType="date"
-            android:text="@{String.valueOf(pet.nascimento)}"
             app:layout_constraintBottom_toBottomOf="@id/fl_form"
             app:layout_constraintEnd_toEndOf="@id/fl_form"
             app:layout_constraintStart_toEndOf="@id/pet_nascimento_label"
