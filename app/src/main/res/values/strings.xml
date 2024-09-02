@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Pets CRUD</string>
+    <string name="pet_layout_title">Pets</string>
+    <string name="pet_layout_nome_label">Nome:</string>
+    <string name="pet_nome_hint">Nome do Pet</string>
+    <string name="pet_raca_label">Raça:</string>
+    <string name="pet_raca_hint">Raça</string>
+    <string name="pet_peso_label">Peso:</string>
+    <string name="pet_peso_hint">Peso em kilos ex: 10,70</string>
+    <string name="pet_nascimento_label">Nascimento:</string>
+    <string name="pet_nascimento_hint">__/__/____</string>
+    <string name="btn_gravar_text">Gravar</string>
+    <string name="btn_pesquisar_text">Pesquisar</string>
 </resources>
