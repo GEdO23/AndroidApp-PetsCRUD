@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="br.com.petscrud" />
+                  <option name="mobileSdkAppId" value="1:876011328476:android:c8b16e9cd0168354f1f519" />
+                  <option name="projectId" value="pet-cp-backend" />
+                  <option name="projectNumber" value="876011328476" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
