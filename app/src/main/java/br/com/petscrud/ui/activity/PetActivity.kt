@@ -6,6 +6,7 @@ import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import br.com.petscrud.R
 import br.com.petscrud.models.Pet
+import br.com.petscrud.utils.PetUtil
 import com.google.gson.Gson
 import okhttp3.OkHttpClient
 
@@ -38,4 +39,18 @@ class PetActivity : AppCompatActivity() {
         btnGravar = findViewById(R.id.btn_gravar)
         btnPesquisar = findViewById(R.id.btn_pesquisar)
     }
+
+    private fun paraEntidade(): Pet {
+        val nome = "" + petNome
+        val raca = "" + petRaca
+
+        val peso = PetUtil()
+            .toFloat(petPeso)
+
+        val nascimento = PetUtil()
+            .toDate(petNascimento)
+
+        return Pet(nome, raca, peso, nascimento)
+    }
+
 }
