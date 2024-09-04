@@ -1,31 +1,41 @@
 package br.com.petscrud.ui.activity
 
 import android.os.Bundle
-import android.util.Log
-import android.widget.Toast
+import android.widget.Button
+import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
-import br.com.petscrud.databinding.PetLayoutBinding
+import br.com.petscrud.R
 import br.com.petscrud.models.Pet
 import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
-import java.time.LocalDate
+import okhttp3.OkHttpClient
+
+private const val URL = "https://pet-cp-backend-default-rtdb.firebaseio.com/pets.json"
 
 class PetActivity : AppCompatActivity() {
 
-    private lateinit var binding: PetLayoutBinding
     private var listaPets: List<Pet> = emptyList()
-    private var petUrl = "https://pet-cp-backend-default-rtdb.firebaseio.com/pets.json"
+    private var client = OkHttpClient()
+    private var gson = Gson()
+
+    private lateinit var petNome: EditText
+    private lateinit var petRaca: EditText
+    private lateinit var petPeso: EditText
+    private lateinit var petNascimento: EditText
+    private lateinit var btnGravar: Button
+    private lateinit var btnPesquisar: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = PetLayoutBinding.inflate(layoutInflater)
+        setContentView(R.layout.pet_layout)
+        inicializaCampos()
+    }
 
-        setContentView(binding.root)
-        val gson = Gson()
-
-        binding.apply {
-            btnGravar.setOnClickListener {  }
-            btnPesquisar.setOnClickListener {  }
-        }
+    private fun inicializaCampos() {
+        petNome = findViewById(R.id.pet_nome)
+        petRaca = findViewById(R.id.pet_raca)
+        petPeso = findViewById(R.id.pet_peso)
+        petNascimento = findViewById(R.id.pet_nascimento)
+        btnGravar = findViewById(R.id.btn_gravar)
+        btnPesquisar = findViewById(R.id.btn_pesquisar)
     }
 }
