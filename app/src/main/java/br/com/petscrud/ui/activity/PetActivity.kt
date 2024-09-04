@@ -39,6 +39,12 @@ class PetActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.pet_layout)
         inicializaCampos()
+
+        //TODO: Clicar no botão salvar quebra a aplicação
+        btnGravar.setOnClickListener {
+            val pet = paraEntidade()
+            salvarFirebase(pet)
+        }
     }
 
     private fun inicializaCampos() {
@@ -57,6 +63,7 @@ class PetActivity : AppCompatActivity() {
         val peso = PetUtil()
             .toFloat(petPeso)
 
+        //TODO: Erro de conversão do EditText para LocalDate
         val nascimento = PetUtil()
             .toDate(petNascimento)
 

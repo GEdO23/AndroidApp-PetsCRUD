@@ -20,6 +20,7 @@ class PetUtil {
         }
         """.trimIndent()
 
+    //TODO: Encontrar meio de converter EditText para LocalDate
     fun toDate(edt: EditText): LocalDate =
         LocalDate.parse("" + edt.text, dateFormatter)
 
