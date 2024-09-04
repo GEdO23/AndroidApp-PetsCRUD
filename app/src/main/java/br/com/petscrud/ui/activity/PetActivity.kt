@@ -53,4 +53,16 @@ class PetActivity : AppCompatActivity() {
         return Pet(nome, raca, peso, nascimento)
     }
 
+    private fun paraTela(p: Pet) {
+        val nome = "" + p.nome
+        val raca = "" + p.raca
+        val peso = "" + p.peso
+        val nascimento = "" + p.nascimento
+
+        petNome.setText(nome)
+        petRaca.setText(raca)
+        petPeso.setText(peso)
+        petNascimento.setText(nascimento)
+    }
+
 }
