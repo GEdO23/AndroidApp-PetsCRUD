@@ -1,14 +1,22 @@
 package br.com.petscrud.ui.activity
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import br.com.petscrud.R
 import br.com.petscrud.models.Pet
 import br.com.petscrud.utils.PetUtil
 import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+import okhttp3.Call
+import okhttp3.Callback
 import okhttp3.OkHttpClient
+import okhttp3.Request
+import okhttp3.Response
+import java.io.IOException
 
 private const val URL = "https://pet-cp-backend-default-rtdb.firebaseio.com/pets.json"
 
@@ -63,6 +71,70 @@ class PetActivity : AppCompatActivity() {
         petRaca.setText(raca)
         petPeso.setText(peso)
         petNascimento.setText(nascimento)
+    }
+
+    private fun carregarFirebase() {
+        listaPets = emptyList()
+
+        val request = Request.Builder()
+            .url(URL)
+            .get()
+            .build()
+
+        val response = getFirebaseResponse()
+
+        client.newCall(request)
+            .enqueue(response)
+    }
+
+    private fun getFirebaseResponse(): Callback = object : Callback {
+        private var TAG = "data pet firebase response"
+
+        override fun onFailure(call: Call, e: IOException) {
+            Log.e("$TAG failure", "${e.message}")
+        }
+
+        override fun onResponse(call: Call, response: Response) {
+            val json = response.body?.string()
+            Log.i("$TAG success json", "$json")
+
+            try {
+                inserirElementosNaLista(json)
+
+            } catch (err: Exception) {
+                Log.e("$TAG error", "${err.message}")
+                Toast.makeText(
+                    this@PetActivity,
+                    "Pet não encontrado", Toast.LENGTH_LONG
+                ).show()
+            }
+        }
+
+        private fun inserirElementosNaLista(json: String?) {
+            val elemento = getElemento(json)
+
+            runOnUiThread {
+                elemento.values.forEach { p ->
+                    Log.v("$TAG success", "$p")
+                    if (p != null) listaPets += p
+                }
+
+                Toast.makeText(
+                    this@PetActivity,
+                    "Elementos inseridos na lista", Toast.LENGTH_LONG
+                ).show()
+            }
+        }
+
+        private fun getElemento(json: String?): HashMap<String?, Pet?> {
+            val type = object :
+                TypeToken<HashMap<String?, Pet?>?>() {}.type
+
+            val elemento: HashMap<String?, Pet?> =
+                gson.fromJson(json, type)
+
+            return elemento
+        }
     }
 
 }
