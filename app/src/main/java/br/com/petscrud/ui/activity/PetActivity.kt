@@ -154,4 +154,73 @@ class PetActivity : AppCompatActivity() {
         carregarFirebase()
     }
 
+    // TODO: Pesquisar
+    private fun pesquisar() {
+
+        val request = Request.Builder()
+            .url(URL)
+            .get()
+            .build()
+
+        val response = object : Callback {
+            private var TAG = "data pet pesquisar response"
+
+            override fun onFailure(call: Call, e: IOException) {
+                Log.e("$TAG failure", "${e.message}")
+            }
+
+            override fun onResponse(call: Call, response: Response) {
+                val json = response.body?.string()
+                Log.i("$TAG success", "$json")
+
+                try {
+                    val elementos = getElementos(json)
+                    val petEncontrado = getPetEncontrado(elementos)
+
+                    if (petEncontrado != null) {
+                        paraTela(petEncontrado)
+                    } else {
+                        runOnUiThread {
+                            Toast.makeText(
+                                this@PetActivity,
+                                "Pet não encontrado", Toast.LENGTH_LONG
+                            ).show()
+                        }
+                    }
+
+                } catch (e: Exception) {
+                    Log.e("$TAG error", "${e.message}")
+                    runOnUiThread {
+                        Toast.makeText(
+                            this@PetActivity,
+                            "Pet não encontrado", Toast.LENGTH_LONG
+                        ).show()
+                    }
+                }
+            }
+
+            private fun getElementos(json: String?): List<Pet> {
+                val listaPets: List<Pet> = gson
+                    .fromJson(json, Array<Pet>::class.java)
+                    .toList()
+
+                return listaPets
+            }
+
+            private fun getPetEncontrado(
+                list: List<Pet>?
+            ): Pet? {
+                val petNome = "" + petNome.text
+
+                val petEncontrado = list?.find { pet -> pet.nome == petNome }
+                Log.i("data pet findbyname", "" + petEncontrado)
+
+                return petEncontrado
+            }
+        }
+
+        client.newCall(request)
+            .enqueue(response)
+    }
+
 }
