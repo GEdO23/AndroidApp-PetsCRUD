@@ -1,30 +1,25 @@
 package br.com.petscrud.utils
 
-import android.widget.EditText
 import br.com.petscrud.models.Pet
-import java.text.NumberFormat
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
-import java.util.Locale
 
 class PetUtil {
-    private var numberFormat = NumberFormat.getInstance(Locale.ROOT)
     private var dateFormatter = DateTimeFormatter.ofPattern("dd/MM/uuuu")
 
-    fun toJson(pet: Pet) = """
+    fun convertToJson(pet: Pet) = """
         { 
         "nome": "${pet.nome}",
         "raca": "${pet.raca}",
         "peso": "${pet.peso}",
-        "nascimento": "${pet.nascimento}"
+        "nascimento": "${convertDateToString(pet.nascimento)}"
         }
         """.trimIndent()
 
-    //TODO: Encontrar meio de converter EditText para LocalDate
-    fun toDate(edt: EditText): LocalDate =
-        LocalDate.parse("" + edt.text, dateFormatter)
+    fun convertStringToDate(str: String): LocalDate =
+        LocalDate.parse(str, dateFormatter)
 
-    fun toFloat(edt: EditText): Float =
-        numberFormat.parse("" + edt.text)!!.toFloat()
+    fun convertDateToString(date: LocalDate): String =
+        date.format(dateFormatter)
 
 }
