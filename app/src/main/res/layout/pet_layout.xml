@@ -1,175 +1,173 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
-    <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-        <!--TITULO-->
-        <TextView
-            android:id="@+id/title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="80dp"
-            android:text="@string/pet_layout_title"
-            android:textSize="48sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <!--TITULO-->
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:text="@string/pet_layout_title"
+        android:textSize="48sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <!--FORM-->
-        <FrameLayout
-            android:id="@+id/fl_form"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="64dp"
-            android:layout_marginEnd="32dp"
-            android:layout_marginBottom="64dp"
-            app:layout_constraintBottom_toTopOf="@id/fl_botoes"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/title" />
+    <!--FORM-->
+    <FrameLayout
+        android:id="@+id/fl_form"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="64dp"
+        app:layout_constraintBottom_toTopOf="@id/fl_botoes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title" />
 
-        <!--NOME-->
-        <TextView
-            android:id="@+id/pet_nome_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="32dp"
-            android:text="@string/pet_layout_nome_label"
-            app:layout_constraintBottom_toBottomOf="@id/pet_nome"
-            app:layout_constraintEnd_toStartOf="@id/pet_nome"
-            app:layout_constraintHorizontal_chainStyle="packed"
-            app:layout_constraintStart_toStartOf="@id/fl_form"
-            app:layout_constraintTop_toTopOf="@id/pet_nome" />
+    <!--NOME-->
+    <TextView
+        android:id="@+id/pet_nome_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:text="@string/pet_layout_nome_label"
+        app:layout_constraintBottom_toBottomOf="@id/pet_nome"
+        app:layout_constraintEnd_toStartOf="@id/pet_nome"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="@id/fl_form"
+        app:layout_constraintTop_toTopOf="@id/pet_nome" />
 
-        <EditText
-            android:id="@+id/pet_nome"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:autofillHints="name"
-            android:hint="@string/pet_nome_hint"
-            android:inputType="text"
-            app:layout_constraintBottom_toTopOf="@+id/pet_raca"
-            app:layout_constraintEnd_toEndOf="@id/fl_form"
-            app:layout_constraintStart_toEndOf="@id/pet_nome_label"
-            app:layout_constraintTop_toTopOf="@id/fl_form"
-            app:layout_constraintVertical_chainStyle="spread"
-            app:layout_constraintWidth_max="488dp" />
+    <EditText
+        android:id="@+id/pet_nome"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:autofillHints="name"
+        android:hint="@string/pet_nome_hint"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/pet_raca"
+        app:layout_constraintEnd_toEndOf="@id/fl_form"
+        app:layout_constraintStart_toEndOf="@id/pet_nome_label"
+        app:layout_constraintTop_toTopOf="@id/fl_form"
+        app:layout_constraintVertical_chainStyle="spread"
+        app:layout_constraintWidth_max="488dp" />
 
-        <!--RAÇA-->
-        <TextView
-            android:id="@+id/pet_raca_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="32dp"
-            android:text="@string/pet_raca_label"
-            app:layout_constraintBottom_toBottomOf="@id/pet_raca"
-            app:layout_constraintEnd_toStartOf="@id/pet_raca"
-            app:layout_constraintHorizontal_chainStyle="packed"
-            app:layout_constraintStart_toStartOf="@id/fl_form"
-            app:layout_constraintTop_toTopOf="@id/pet_raca" />
+    <!--RAÇA-->
+    <TextView
+        android:id="@+id/pet_raca_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:text="@string/pet_raca_label"
+        app:layout_constraintBottom_toBottomOf="@id/pet_raca"
+        app:layout_constraintEnd_toStartOf="@id/pet_raca"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="@id/fl_form"
+        app:layout_constraintTop_toTopOf="@id/pet_raca" />
 
-        <EditText
-            android:id="@+id/pet_raca"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:autofillHints="name"
-            android:hint="@string/pet_raca_hint"
-            android:inputType="text"
-            app:layout_constraintBottom_toTopOf="@+id/pet_peso"
-            app:layout_constraintEnd_toEndOf="@id/fl_form"
-            app:layout_constraintStart_toEndOf="@id/pet_raca_label"
-            app:layout_constraintTop_toBottomOf="@+id/pet_nome"
-            app:layout_constraintWidth_max="488dp" />
+    <EditText
+        android:id="@+id/pet_raca"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:autofillHints="name"
+        android:hint="@string/pet_raca_hint"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/pet_peso"
+        app:layout_constraintEnd_toEndOf="@id/fl_form"
+        app:layout_constraintStart_toEndOf="@id/pet_raca_label"
+        app:layout_constraintTop_toBottomOf="@+id/pet_nome"
+        app:layout_constraintWidth_max="488dp" />
 
-        <!--PESO-->
-        <TextView
-            android:id="@+id/pet_peso_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="32dp"
-            android:text="@string/pet_peso_label"
-            app:layout_constraintBottom_toBottomOf="@id/pet_peso"
-            app:layout_constraintEnd_toStartOf="@id/pet_peso"
-            app:layout_constraintHorizontal_chainStyle="packed"
-            app:layout_constraintStart_toStartOf="@id/fl_form"
-            app:layout_constraintTop_toTopOf="@id/pet_peso" />
+    <!--PESO-->
+    <TextView
+        android:id="@+id/pet_peso_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:text="@string/pet_peso_label"
+        app:layout_constraintBottom_toBottomOf="@id/pet_peso"
+        app:layout_constraintEnd_toStartOf="@id/pet_peso"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="@id/fl_form"
+        app:layout_constraintTop_toTopOf="@id/pet_peso" />
 
-        <EditText
-            android:id="@+id/pet_peso"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:autofillHints=""
-            android:hint="@string/pet_peso_hint"
-            android:inputType="numberDecimal"
-            app:layout_constraintBottom_toTopOf="@+id/pet_nascimento"
-            app:layout_constraintEnd_toEndOf="@id/fl_form"
-            app:layout_constraintStart_toEndOf="@id/pet_peso_label"
-            app:layout_constraintTop_toBottomOf="@+id/pet_raca"
-            app:layout_constraintWidth_max="488dp" />
+    <EditText
+        android:id="@+id/pet_peso"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:autofillHints=""
+        android:hint="@string/pet_peso_hint"
+        android:inputType="numberDecimal"
+        app:layout_constraintBottom_toTopOf="@+id/pet_nascimento"
+        app:layout_constraintEnd_toEndOf="@id/fl_form"
+        app:layout_constraintStart_toEndOf="@id/pet_peso_label"
+        app:layout_constraintTop_toBottomOf="@+id/pet_raca"
+        app:layout_constraintWidth_max="488dp" />
 
-        <!--NASCIMENTO-->
-        <TextView
-            android:id="@+id/pet_nascimento_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="32dp"
-            android:text="@string/pet_nascimento_label"
-            app:layout_constraintBottom_toBottomOf="@id/pet_nascimento"
-            app:layout_constraintEnd_toStartOf="@id/pet_nascimento"
-            app:layout_constraintHorizontal_chainStyle="packed"
-            app:layout_constraintStart_toStartOf="@id/fl_form"
-            app:layout_constraintTop_toTopOf="@id/pet_nascimento" />
+    <!--NASCIMENTO-->
+    <TextView
+        android:id="@+id/pet_nascimento_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:text="@string/pet_nascimento_label"
+        app:layout_constraintBottom_toBottomOf="@id/pet_nascimento"
+        app:layout_constraintEnd_toStartOf="@id/pet_nascimento"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="@id/fl_form"
+        app:layout_constraintTop_toTopOf="@id/pet_nascimento" />
 
-        <EditText
-            android:id="@+id/pet_nascimento"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:autofillHints=""
-            android:hint="@string/pet_nascimento_hint"
-            android:inputType="date"
-            app:layout_constraintBottom_toBottomOf="@id/fl_form"
-            app:layout_constraintEnd_toEndOf="@id/fl_form"
-            app:layout_constraintStart_toEndOf="@id/pet_nascimento_label"
-            app:layout_constraintTop_toBottomOf="@+id/pet_peso"
-            app:layout_constraintWidth_max="488dp" />
+    <EditText
+        android:id="@+id/pet_nascimento"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:autofillHints=""
+        android:hint="@string/pet_nascimento_hint"
+        android:inputType="date"
+        app:layout_constraintBottom_toBottomOf="@id/fl_form"
+        app:layout_constraintEnd_toEndOf="@id/fl_form"
+        app:layout_constraintStart_toEndOf="@id/pet_nascimento_label"
+        app:layout_constraintTop_toBottomOf="@+id/pet_peso"
+        app:layout_constraintWidth_max="488dp" />
 
-        <!--BOTÕES-->
-        <FrameLayout
-            android:id="@+id/fl_botoes"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_marginBottom="64dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@id/fl_form"
-            app:layout_constraintStart_toStartOf="@id/fl_form"
-            app:layout_constraintTop_toBottomOf="@id/fl_form" />
+    <!--BOTÕES-->
+    <FrameLayout
+        android:id="@+id/fl_botoes"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="64dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/fl_form"
+        app:layout_constraintStart_toStartOf="@id/fl_form"
+        app:layout_constraintTop_toBottomOf="@id/fl_form" />
 
-        <!--BOTÃO GRAVAR-->
-        <Button
-            android:id="@+id/btn_gravar"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:text="@string/btn_gravar_text"
-            app:layout_constraintBottom_toBottomOf="@id/fl_botoes"
-            app:layout_constraintEnd_toStartOf="@id/btn_pesquisar"
-            app:layout_constraintHorizontal_chainStyle="spread_inside"
-            app:layout_constraintStart_toStartOf="@id/fl_botoes"
-            app:layout_constraintTop_toTopOf="@id/fl_botoes" />
+    <!--BOTÃO GRAVAR-->
+    <Button
+        android:id="@+id/btn_gravar"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:text="@string/btn_gravar_text"
+        app:layout_constraintBottom_toBottomOf="@id/fl_botoes"
+        app:layout_constraintEnd_toStartOf="@id/btn_pesquisar"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="@id/fl_botoes"
+        app:layout_constraintTop_toTopOf="@id/fl_botoes" />
 
-        <!--BOTÃO PESQUISAR-->
-        <Button
-            android:id="@+id/btn_pesquisar"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:text="@string/btn_pesquisar_text"
-            app:layout_constraintBottom_toBottomOf="@id/fl_botoes"
-            app:layout_constraintEnd_toEndOf="@id/fl_botoes"
-            app:layout_constraintHorizontal_chainStyle="spread_inside"
-            app:layout_constraintStart_toEndOf="@id/btn_gravar"
-            app:layout_constraintTop_toTopOf="@id/fl_botoes" />
+    <!--BOTÃO PESQUISAR-->
+    <Button
+        android:id="@+id/btn_pesquisar"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:text="@string/btn_pesquisar_text"
+        app:layout_constraintBottom_toBottomOf="@id/fl_botoes"
+        app:layout_constraintEnd_toEndOf="@id/fl_botoes"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toEndOf="@id/btn_gravar"
+        app:layout_constraintTop_toTopOf="@id/fl_botoes" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</layout>
+</androidx.constraintlayout.widget.ConstraintLayout>
