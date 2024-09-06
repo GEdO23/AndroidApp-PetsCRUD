@@ -54,6 +54,10 @@ class PetActivity : AppCompatActivity() {
         btnGravar.setOnClickListener {
             salvarFirebase()
         }
+
+        btnPesquisar.setOnClickListener {
+            pesquisar()
+        }
     }
 
     private fun paraEntidade(): Pet {
@@ -99,7 +103,8 @@ class PetActivity : AppCompatActivity() {
                 runOnUiThread {
                     Toast.makeText(
                         this@PetActivity,
-                        "Pet cadastrado com sucesso", Toast.LENGTH_LONG
+                        "Pet cadastrado com sucesso",
+                        Toast.LENGTH_LONG
                     ).show()
                 }
             }
@@ -152,7 +157,8 @@ class PetActivity : AppCompatActivity() {
                     runOnUiThread {
                         Toast.makeText(
                             this@PetActivity,
-                            "Erro ao buscar pets", Toast.LENGTH_LONG
+                            "Erro ao buscar pets",
+                            Toast.LENGTH_LONG
                         ).show()
                     }
                 }
@@ -161,5 +167,56 @@ class PetActivity : AppCompatActivity() {
 
         httpClient.newCall(request)
             .enqueue(response)
+    }
+
+    private fun pesquisar() {
+        val query = "orderBy=\"nome\"&equalTo=\"${petNome.text}\"&limitToLast=1"
+
+        val request = Request.Builder()
+            .url("$RTDB_URL?$query")
+            .get()
+            .build()
+
+        val response = object : Callback {
+            private var responseLogTag = "PesquisarResponse"
+
+            override fun onFailure(call: Call, e: IOException) {
+                Log.e(responseLogTag, e.message.toString())
+            }
+
+            override fun onResponse(call: Call, response: Response) {
+                val localBody = response.body
+                val petListJson = localBody!!.string()
+                Log.i(responseLogTag, "" + petListJson)
+
+                val petsMapType = object : TypeToken<Map<String, Pet>>() {}.type
+                val petsMap: Map<String, Pet> = gson.fromJson(petListJson, petsMapType)
+
+                runOnUiThread {
+                    petsMap.values.forEach {
+                        Log.v("PetEncontrado", it.toString())
+                        paraTela(it)
+                    }
+
+                    Toast.makeText(
+                        this@PetActivity,
+                        "Pesquisa feita com sucesso",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
+            }
+        }
+
+        httpClient.newCall(request)
+            .enqueue(response)
+    }
+
+    private fun paraTela(p: Pet) {
+        petNome.setText(p.nome)
+        petRaca.setText(p.raca)
+        petPeso.setText(p.peso.toString())
+        petNascimento.setText(
+            LocalDateUtil().toString(p.nascimento)
+        )
     }
 }
