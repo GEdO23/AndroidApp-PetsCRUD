@@ -78,7 +78,6 @@ class PetActivity : AppCompatActivity() {
         """.trimIndent()
 
         val mediaType = "application/json".toMediaTypeOrNull()
-        //TODO Será que mantenho o nome da variável como body?
         val body = petJson.toRequestBody(mediaType)
 
         val request = Request.Builder()
@@ -95,10 +94,7 @@ class PetActivity : AppCompatActivity() {
 
             override fun onResponse(call: Call, response: Response) {
                 val localBody = response.body
-                //TODO Não gosto de utilizar asserted call
                 Log.i(responseLogTag, localBody!!.string())
-
-                //TODO Salvar Pet no Realtime Database
 
                 runOnUiThread {
                     Toast.makeText(
